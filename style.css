@@ -1,0 +1,240 @@
+@import url("https://fonts.googleapis.com/css2?family=Spartan:wght@400;500;700&display=swap");
+
+*,
+*::before,
+*::after {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+:root {
+	/* colors primary */
+	--very-dark-magenta: hsl(300, 43%, 22%);
+	--soft-pink: hsl(333, 80%, 67%);
+
+	/* colors neutral */
+	--dark-grayish-magenta: hsl(303, 10%, 53%);
+	--light-grayish-magenta: hsl(300, 24%, 96%);
+	--white: hsl(0, 0%, 100%);
+}
+
+body {
+	font-family: "Spartan", sans-serif;
+	font-size: 15px;
+	width: 100vw;
+	min-height: 100vh;
+	background-image: url("images/bg-pattern-top-mobile.svg"),
+		url("images/bg-pattern-bottom-mobile.svg");
+	background-repeat: no-repeat, no-repeat;
+	background-position: top left, bottom right;
+	background-size: 100%;
+}
+
+.layout {
+	width: 80%;
+	max-width: 1090px;
+	margin: 3em auto;
+}
+
+/* HEADER */
+.header-section {
+	text-align: center;
+}
+
+.main-title {
+	font-size: 2rem;
+	color: var(--very-dark-magenta);
+	font-weight: 700;
+}
+
+.main-description {
+	color: var(--dark-grayish-magenta);
+	margin: 2em 0;
+	line-height: 2;
+}
+
+/* RATINGS */
+.rating-section {
+	margin: 3em 0;
+}
+
+.rating-item {
+	background-color: var(--light-grayish-magenta);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 1em;
+	padding: 1em;
+	border-radius: 10px;
+}
+
+.rating-stars {
+	margin-bottom: 0.5em;
+}
+
+.rating-source {
+	color: var(--very-dark-magenta);
+	font-weight: 700;
+}
+
+/* REVIEWS */
+.testimonial-section {
+	margin: 3em 0;
+}
+
+.testimonial-item {
+	background-color: var(--very-dark-magenta);
+	color: var(--white);
+	padding: 2em;
+	margin: 1em 0;
+	border-radius: 10px;
+}
+
+.user-info {
+	display: flex;
+	align-items: center;
+	margin-bottom: 2em;
+}
+
+.user-avatar {
+	border-radius: 50%;
+	width: 50px;
+	height: 50px;
+	margin-right: 20px;
+}
+
+.user-name {
+	font-weight: 500;
+}
+
+.user-status {
+	color: var(--soft-pink);
+	font-weight: 400;
+}
+
+.testimonial-text {
+	line-height: 1.5;
+}
+
+/* Media Queries */
+/* Tablets and Small Laptops */
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+	body {
+		background-image: url("images/bg-pattern-top-desktop.svg"),
+			url("images/bg-pattern-bottom-desktop.svg");
+		background-repeat: no-repeat, no-repeat;
+		background-position: top left, bottom right;
+		background-size: 50%, 75%;
+	}
+
+	.layout {
+		display: grid;
+		grid-template-areas:
+			"header-section rating-section"
+			"testimonial-section testimonial-section";
+	}
+
+	.header-section {
+		grid-area: header-section;
+		text-align: left;
+	}
+
+	.rating-section {
+		grid-area: rating-section;
+	}
+
+	.testimonial-section {
+		grid-area: testimonial-section;
+		display: grid;
+		grid-template-areas:
+			"testimonial-1 testimonial-2"
+			"testimonial-3 testimonial-3";
+		gap: 20px;
+	}
+
+	#testimonial-1 {
+		grid-area: testimonial-1;
+	}
+
+	#testimonial-2 {
+		grid-area: testimonial-2;
+	}
+
+	#testimonial-3 {
+		grid-area: testimonial-3;
+	}
+}
+
+@media screen and (min-width: 1200px) {
+	body {
+		background-image: url("images/bg-pattern-top-desktop.svg"),
+			url("images/bg-pattern-bottom-desktop.svg");
+		background-repeat: no-repeat, no-repeat;
+		background-position: top left, bottom right;
+		background-size: 50%, 75%;
+	}
+
+	.layout {
+		display: grid;
+		grid-template-areas:
+			"header-section rating-section"
+			"testimonial-section testimonial-section";
+	}
+
+	.header-section {
+		grid-area: header-section;
+		text-align: left;
+		width: 520px;
+	}
+
+	.main-title {
+		font-size: 3rem;
+	}
+
+	.rating-section {
+		grid-area: rating-section;
+		width: 520px;
+	}
+
+	.rating-item {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		width: 450px;
+		padding: 1.5em 0;
+	}
+
+	.rating-stars {
+		margin-right: 20px;
+		margin-bottom: 0;
+	}
+
+	#review-2 {
+		margin-left: 40px;
+	}
+	#review-3 {
+		margin-left: 80px;
+	}
+
+	.testimonial-section {
+		grid-area: testimonial-section;
+		display: flex;
+		justify-content: space-between;
+		margin-top: 50px;
+	}
+
+	.testimonial-item {
+		width: 350px;
+		height: 250px;
+	}
+
+	#testimonial-2 {
+		margin-top: 35px;
+	}
+
+	#testimonial-3 {
+		margin-top: 60px;
+	}
+}
